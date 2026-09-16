@@ -4,7 +4,7 @@
 
 ✅ **Status**: COMPLETE AND READY FOR DEPLOYMENT
 
-The `/v1` API prefix has been successfully implemented for all Mux Backend API endpoints. This enables API versioning and follows REST best practices.
+The `/v1` API prefix has been successfully implemented for all Stellvex Backend API endpoints. This enables API versioning and follows REST best practices.
 
 ---
 
@@ -89,7 +89,7 @@ GET /v1/wallets
 
 ### Quick Test (30 seconds)
 ```bash
-cd /workspaces/mux-backend
+cd /workspaces/stellvex-backend
 pnpm test:e2e -- test/api-prefix-v1.e2e-spec.ts
 ```
 

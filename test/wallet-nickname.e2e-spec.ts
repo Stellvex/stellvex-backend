@@ -153,7 +153,7 @@ describe('WalletsController nickname (e2e)', () => {
 
     const res = await request(app.getHttpServer())
       .patch(nickUrl())
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .set('x-request-id', 'req-nick-1')
       .send({ nickname: '<script>alert(1)</script>Savings' })
       .expect(200);
@@ -184,7 +184,7 @@ describe('WalletsController nickname (e2e)', () => {
 
     const res = await request(app.getHttpServer())
       .patch(nickUrl())
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .set('x-request-id', 'req-nick-conflict')
       .send({ nickname: 'Savings' })
       .expect(409);
@@ -202,7 +202,7 @@ describe('WalletsController nickname (e2e)', () => {
 
     const res = await request(app.getHttpServer())
       .patch(nickUrl())
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .send({ nickname: null })
       .expect(200);
 
@@ -219,7 +219,7 @@ describe('WalletsController nickname (e2e)', () => {
 
     const res = await request(app.getHttpServer())
       .patch(nickUrl())
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .send({ nickname: '<img src=x onerror=alert(1)>' })
       .expect(200);
 

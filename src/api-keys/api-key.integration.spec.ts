@@ -117,12 +117,12 @@ describe('ApiKeyService (integration)', () => {
   // ---------------------------------------------------------------------------
 
   describe('createApiKey', () => {
-    it('returns a mux_live_ prefixed key for a production project', async () => {
+    it('returns a stellvex_live_ prefixed key for a production project', async () => {
       const { plainTextKey } = await service.createApiKey({
         name: 'prod-key',
         projectId: project.id,
       });
-      expect(plainTextKey).toMatch(/^mux_live_/);
+      expect(plainTextKey).toMatch(/^stellvex_live_/);
     });
 
     it('stores a SHA-256 hash, never the plain-text key', async () => {
@@ -165,7 +165,7 @@ describe('ApiKeyService (integration)', () => {
   // ---------------------------------------------------------------------------
 
   describe('validateApiKey', () => {
-    it('rejects keys that do not start with mux_', async () => {
+    it('rejects keys that do not start with stellvex_', async () => {
       await expect(service.validateApiKey('sk_bad_key')).rejects.toThrow(
         UnauthorizedException,
       );
@@ -173,7 +173,7 @@ describe('ApiKeyService (integration)', () => {
 
     it('rejects a key that is not in the store', async () => {
       await expect(
-        service.validateApiKey('mux_live_doesnotexist'),
+        service.validateApiKey('stellvex_live_doesnotexist'),
       ).rejects.toThrow(UnauthorizedException);
     });
 

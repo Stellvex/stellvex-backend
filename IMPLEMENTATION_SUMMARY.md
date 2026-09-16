@@ -1,7 +1,7 @@
-# Implementation Summary: Mux Backend Security & Reliability Tasks
+# Implementation Summary: Stellvex Backend Security & Reliability Tasks
 
 ## Overview
-Successfully implemented 4 critical security and reliability tasks for the Mux Backend to enable safe custody of Stellar keys, relay of sponsored transactions, and exposure of the production `/v1` API.
+Successfully implemented 4 critical security and reliability tasks for the Stellvex Backend to enable safe custody of Stellar keys, relay of sponsored transactions, and exposure of the production `/v1` API.
 
 ---
 

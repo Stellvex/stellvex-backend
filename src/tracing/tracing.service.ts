@@ -28,7 +28,7 @@ export class TracingService implements OnModuleInit, OnModuleDestroy {
       'http://localhost:4318/v1/traces';
 
     const serviceName =
-      this.configService.get<string>('OTEL_SERVICE_NAME') ?? 'mux-backend';
+      this.configService.get<string>('OTEL_SERVICE_NAME') ?? 'stellvex-backend';
 
     const serviceVersion =
       this.configService.get<string>('OTEL_SERVICE_VERSION') ?? '1.0.0';
@@ -124,7 +124,7 @@ export class TracingService {
         // });
         // sdk.start();
         // this.tracerProvider = sdk.getNodeTracerProvider();
-        // this.tracer = this.tracerProvider.getTracer('mux-backend');
+        // this.tracer = this.tracerProvider.getTracer('stellvex-backend');
 
         this.logger.log(
           'OpenTelemetry configured (awaiting @opentelemetry packages)',

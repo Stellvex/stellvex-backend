@@ -60,7 +60,7 @@ export interface DlqAlert {
  *
  * The ops webhook receives a JSON body with the shape:
  *   {
- *     "service": "mux-backend",
+ *     "service": "stellvex-backend",
  *     "event": "dlq.threshold_breached",
  *     "dlqDepth": <number>,
  *     "totalDeliveries": <number>,
@@ -292,10 +292,10 @@ export class WebhookDlqAlertService implements OnModuleInit, OnModuleDestroy {
     const summary = status.alerts.map((a) => a.message).join('; ');
 
     const payload = {
-      service: 'mux-backend',
+      service: 'stellvex-backend',
       event: 'dlq.threshold_breached',
       // Slack-compatible `text` field for simple Slack channels
-      text: `[mux-backend] DLQ threshold breached: ${summary}`,
+      text: `[stellvex-backend] DLQ threshold breached: ${summary}`,
       dlqDepth: status.dlqDepth,
       totalDeliveries: status.totalDeliveries,
       dlqPercentage: parseFloat(status.dlqPercentage.toFixed(2)),

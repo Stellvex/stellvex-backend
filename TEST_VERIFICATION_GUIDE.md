@@ -48,7 +48,7 @@ These test files were updated to use the new `/v1` prefix:
 ### Option 1: Run All E2E Tests
 ```bash
 # Navigate to project directory
-cd /workspaces/mux-backend
+cd /workspaces/stellvex-backend
 
 # Install dependencies (if needed)
 pnpm install
@@ -188,7 +188,7 @@ If you want to manually verify the implementation:
 
 ### 1. Start the Application
 ```bash
-cd /workspaces/mux-backend
+cd /workspaces/stellvex-backend
 pnpm start:dev
 ```
 

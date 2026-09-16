@@ -105,7 +105,7 @@ describe('CronSecretGuard (#801)', () => {
       const guard = new CronSecretGuard(config(SECRET));
       expect(() =>
         guard.canActivate(
-          contextWithHeaders({ authorization: 'Bearer mux_live_something' }),
+          contextWithHeaders({ authorization: 'Bearer stellvex_live_something' }),
         ),
       ).toThrow(UnauthorizedException);
     });
@@ -145,7 +145,7 @@ describe('CronSecretGuard (#801)', () => {
     it('returns 401 with only a Bearer/API-key style header', async () => {
       await request(app.getHttpServer())
         .post('/internal-guarded/poll-pending')
-        .set('Authorization', 'Bearer mux_live_something')
+        .set('Authorization', 'Bearer stellvex_live_something')
         .expect(401);
     });
 

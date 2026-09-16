@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Key Management Module provides a secure, centralized service for cryptographic key operations in the Mux Protocol. This module is the **ONLY** layer that has access to private keys and ensures they are never exposed outside the service boundary.
+The Key Management Module provides a secure, centralized service for cryptographic key operations in the Stellvex Protocol. This module is the **ONLY** layer that has access to private keys and ensures they are never exposed outside the service boundary.
 
 ## Core Principles
 
@@ -165,7 +165,7 @@ no default credential and no implicit allow path. These application-layer checks
 sit behind, not instead of, network/service-mesh restrictions.
 
 ```bash
-curl -X POST https://internal.mux/v1/internal/key-management/validate \
+curl -X POST https://internal.stellvex/v1/internal/key-management/validate \
   -H "x-internal-api-key: $KEY_MANAGEMENT_INTERNAL_API_KEY" \
   -H 'content-type: application/json' \
   -d '{ "publicKey": "G...", "encryptedKeyMaterial": "...", "keyType": "STELLAR_ED25519" }'

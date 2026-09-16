@@ -1,7 +1,7 @@
 /**
  * Supported authentication providers
  *
- * These represent the external identity providers that Mux Backend
+ * These represent the external identity providers that Stellvex Backend
  * trusts for user authentication. Each provider has a specific JWT
  * verification strategy and configuration.
  */

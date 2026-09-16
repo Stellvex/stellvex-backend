@@ -1,7 +1,7 @@
 # API Prefix v1 Implementation Guide
 
 ## Overview
-This document describes the implementation of the `/v1` API prefix for the Mux Backend application, as per the bootstrap requirements. All API endpoints are now served under the `/v1` path.
+This document describes the implementation of the `/v1` API prefix for the Stellvex Backend application, as per the bootstrap requirements. All API endpoints are now served under the `/v1` path.
 
 ## Changes Made
 

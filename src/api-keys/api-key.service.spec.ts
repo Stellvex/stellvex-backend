@@ -150,7 +150,7 @@ describe('ApiKeyService', () => {
       });
 
       expect(result.plainTextKey).toBeDefined();
-      expect(result.plainTextKey).toMatch(/^mux_(live|test)_/);
+      expect(result.plainTextKey).toMatch(/^stellvex_(live|test)_/);
       expect(result.plainTextKey.length).toBeGreaterThan(20);
     });
 
@@ -183,7 +183,7 @@ describe('ApiKeyService', () => {
 
       expect(result.apiKey.id).toBeDefined();
       expect(result.apiKey.name).toBe('test-key');
-      expect(result.apiKey.keyPrefix).toMatch(/^mux_(live|test)_/);
+      expect(result.apiKey.keyPrefix).toMatch(/^stellvex_(live|test)_/);
       expect(result.apiKey.lastFour).toMatch(/^[a-zA-Z0-9_-]{4}$/);
       expect(result.apiKey.status).toBe(ApiKeyStatus.ACTIVE);
       expect(result.apiKey.createdAt).toBeDefined();
@@ -222,7 +222,7 @@ describe('ApiKeyService', () => {
       mockPrisma.apiKey.findUnique.mockResolvedValue(null);
 
       await expect(
-        service.validateApiKey('mux_test_nonexistent'),
+        service.validateApiKey('stellvex_test_nonexistent'),
       ).rejects.toThrow(UnauthorizedException);
     });
 

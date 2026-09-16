@@ -1,12 +1,12 @@
 # Custody Security Model
 
-Mux Backend uses a **server-side custodial model** for Stellar keypairs. This document describes every layer of that model: how keys are generated, stored, used, rotated, and audited.
+Stellvex Backend uses a **server-side custodial model** for Stellar keypairs. This document describes every layer of that model: how keys are generated, stored, used, rotated, and audited.
 
 ---
 
 ## Overview
 
-Users never see or manage private keys. Mux Backend generates, encrypts, and stores them on behalf of users. All signing happens server-side. The platform is the sole custodian.
+Users never see or manage private keys. Stellvex Backend generates, encrypts, and stores them on behalf of users. All signing happens server-side. The platform is the sole custodian.
 
 ```
 User / Client
@@ -18,7 +18,7 @@ Identity Provider (Clerk / Better Auth)
 User / Client (presents JWT)
      │
      ▼
-Mux Backend API  ← JwtVerificationService verifies JWT sig, extracts identity
+Stellvex Backend API  ← JwtVerificationService verifies JWT sig, extracts identity
      │           ← Only trusts identity from verified JWT claims (sub, auth_provider)
      │           ← Checks local user status (ACTIVE/INACTIVE/SUSPENDED)
      │
@@ -34,7 +34,7 @@ Mux Backend API  ← JwtVerificationService verifies JWT sig, extracts identity
 
 ### Authentication Boundary
 
-The critical security boundary is at "Mux Backend API" where identity is verified:
+The critical security boundary is at "Stellvex Backend API" where identity is verified:
 
 1. **Token Arrival**: Client sends Authorization header with a signed JWT token.
 2. **Signature Verification**: JwtVerificationService verifies the token signature cryptographically against the identity provider's public keys.
@@ -52,13 +52,13 @@ Authentication is the foundation of custody security. If identity is not verifie
 
 ### Server-Side Verification Only
 
-Mux Backend verifies identity server-side using cryptographic JWT verification, not by trusting client-supplied claims:
+Stellvex Backend verifies identity server-side using cryptographic JWT verification, not by trusting client-supplied claims:
 
 | Layer | What is Trusted | Why |
 |---|---|---|
 | **Client** (untrusted) | None. All client claims are ignored. | Clients can be compromised or malicious. |
 | **Identity Provider** (verified) | JWT token signature. User identity from verified token claims. | Provider's keys are rotated and managed by the provider. Signature proves the token came from them. |
-| **Mux Backend** | Verified JWT claims + local user status. | After cryptographic verification, we check our own records for user status. |
+| **Stellvex Backend** | Verified JWT claims + local user status. | After cryptographic verification, we check our own records for user status. |
 
 ### Verification Flow for Every Request
 

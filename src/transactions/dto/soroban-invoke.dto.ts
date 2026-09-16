@@ -9,11 +9,11 @@ import {
 
 /**
  * Request body for invoking a Soroban smart contract method using a
- * Mux-custodied wallet as the invocation source account.
+ * Stellvex-custodied wallet as the invocation source account.
  */
 export class SorobanInvokeDto {
   @ApiProperty({
-    description: 'Mux wallet ID whose key signs the invocation transaction.',
+    description: 'Stellvex wallet ID whose key signs the invocation transaction.',
     example: '550e8400-e29b-41d4-a716-446655440000',
   })
   @IsString()

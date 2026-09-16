@@ -10,7 +10,7 @@ import { validateEnv, ValidatedEnv } from './env.validation';
 
 const VALID_ENV: NodeJS.ProcessEnv = {
   NODE_ENV: 'test',
-  DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_test',
+  DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_test',
   WALLET_ENCRYPTION_KEY: 'a'.repeat(32), // exactly 32 chars
   EXPORT_SIGNING_SECRET: 'b'.repeat(32),
   STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
@@ -249,10 +249,10 @@ describe('validateEnv()', () => {
         validateEnv(
           env({
             CORS_ORIGINS:
-              'https://app.mux.finance, https://partner.example.com',
+              'https://app.stellvex.finance, https://partner.example.com',
           }),
         ).CORS_ORIGINS,
-      ).toEqual(['https://app.mux.finance', 'https://partner.example.com']);
+      ).toEqual(['https://app.stellvex.finance', 'https://partner.example.com']);
     });
 
     it('rejects an invalid origin', () => {

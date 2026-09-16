@@ -1,6 +1,6 @@
 # Feature Flags
 
-Mux Backend uses `FEATURE_*` environment variables to gate its core API surfaces.
+Stellvex Backend uses `FEATURE_*` environment variables to gate its core API surfaces.
 
 ## Default Behaviour
 

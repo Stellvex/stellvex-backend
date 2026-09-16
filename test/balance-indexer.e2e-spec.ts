@@ -97,7 +97,7 @@ describe('BalanceIndexerController (e2e)', () => {
   it('GET /v1/balances/wallet/:walletId should return wallet balances', async () => {
     const res = await request(app.getHttpServer())
       .get('/v1/balances/wallet/wallet-123')
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletId', 'wallet-123');
@@ -110,7 +110,7 @@ describe('BalanceIndexerController (e2e)', () => {
     const res = await request(app.getHttpServer())
       .get('/v1/balances/wallet/wallet-123/asset')
       .query({ assetType: 'NATIVE' })
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletId', 'wallet-123');
@@ -122,7 +122,7 @@ describe('BalanceIndexerController (e2e)', () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/wallet/wallet-123/sync')
       .send({ forceRefresh: true })
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletId', 'wallet-123');
@@ -136,7 +136,7 @@ describe('BalanceIndexerController (e2e)', () => {
   it('POST /v1/balances/sync-all should sync all wallets', async () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/sync-all')
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletsProcessed', 1);
@@ -147,7 +147,7 @@ describe('BalanceIndexerController (e2e)', () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/wallet/wallet-123/reconcile')
       .send({ assetType: 'NATIVE' })
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletId', 'wallet-123');
@@ -162,7 +162,7 @@ describe('BalanceIndexerController (e2e)', () => {
   it('POST /v1/balances/reconcile-all should reconcile all wallets', async () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/reconcile-all')
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletsProcessed', 1);
@@ -174,7 +174,7 @@ describe('BalanceIndexerController (e2e)', () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/wallet/wallet-123/sync-with-retry')
       .send({ forceRefresh: true })
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('walletId', 'wallet-123');
@@ -187,7 +187,7 @@ describe('BalanceIndexerController (e2e)', () => {
   it('GET /v1/balances/wallet/:walletId/stale should detect stale balances', async () => {
     const res = await request(app.getHttpServer())
       .get('/v1/balances/wallet/wallet-123/stale')
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('staleAssets');
@@ -197,7 +197,7 @@ describe('BalanceIndexerController (e2e)', () => {
   it('POST /v1/balances/scheduled-sync should manually trigger scheduled sync', async () => {
     const res = await request(app.getHttpServer())
       .post('/v1/balances/scheduled-sync')
-      .set('Authorization', 'ApiKey mux_test_key')
+      .set('Authorization', 'ApiKey stellvex_test_key')
       .expect(HttpStatus.OK);
 
     expect(res.body).toHaveProperty('status', 'scheduled sync triggered');

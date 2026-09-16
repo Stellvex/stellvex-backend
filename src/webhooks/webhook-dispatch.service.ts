@@ -117,7 +117,7 @@ export class WebhookDispatchService {
             timestamp,
             signature,
           ),
-          'User-Agent': 'Mux-Webhooks/1.0',
+          'User-Agent': 'Stellvex-Webhooks/1.0',
         },
         timeout: this.requestTimeoutMs,
         validateStatus: (status) => status >= 200 && status < 300,

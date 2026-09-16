@@ -91,7 +91,7 @@ fully derived from day one.
 
 ```bash
 # Confirm no plaintext secrets are stored
-docker compose exec db psql -U mux -d mux_db -c \
+docker compose exec db psql -U stellvex -d stellvex_db -c \
   "SELECT id, \"secretVersion\", \"secretHash\", \"pendingSecretVersion\" FROM \"WebhookEndpoint\";"
 
 # secretHash should be a 64-char hex digest (sha256) — never a whsec_ value.

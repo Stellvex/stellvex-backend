@@ -615,7 +615,7 @@ export function validateEnv(env: NodeJS.ProcessEnv): ValidatedEnv {
     env.OTEL_EXPORTER_OTLP_ENDPOINT?.trim() ?? '';
   const OTEL_EXPORTER_OTLP_PROTOCOL =
     env.OTEL_EXPORTER_OTLP_PROTOCOL?.trim() ?? 'http/protobuf';
-  const OTEL_SERVICE_NAME = env.OTEL_SERVICE_NAME?.trim() ?? 'mux-backend';
+  const OTEL_SERVICE_NAME = env.OTEL_SERVICE_NAME?.trim() ?? 'stellvex-backend';
 
   if (OTEL_ENABLED) {
     if (!OTEL_EXPORTER_OTLP_ENDPOINT) {

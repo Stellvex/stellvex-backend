@@ -1,6 +1,6 @@
 // Set required env vars BEFORE module import since ConfigModule.forRoot()
 // validates env vars at import time (during module initialization).
-process.env.DATABASE_URL = 'postgresql://localhost:5432/mux_test';
+process.env.DATABASE_URL = 'postgresql://localhost:5432/stellvex_test';
 process.env.WALLET_ENCRYPTION_KEY =
   'test-key-that-is-at-least-32-characters-long!!';
 process.env.STELLAR_HORIZON_URL = 'https://horizon-testnet.stellar.org';
@@ -27,7 +27,7 @@ describe('ConfigModule', () => {
 
   it('should provide DATABASE_URL from env', () => {
     expect(configService.get('DATABASE_URL')).toBe(
-      'postgresql://localhost:5432/mux_test',
+      'postgresql://localhost:5432/stellvex_test',
     );
   });
 

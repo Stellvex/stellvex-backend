@@ -1,6 +1,6 @@
 # Database Backup and Restore Procedures
 
-This document describes the procedures for backing up and restoring the Mux Backend database. Regular backup and restore drills are essential for disaster recovery planning.
+This document describes the procedures for backing up and restoring the Stellvex Backend database. Regular backup and restore drills are essential for disaster recovery planning.
 
 ## Overview
 
@@ -147,7 +147,7 @@ curl -H "X-Cron-Secret: ${CRON_SECRET}" \
 
 5. **Store Backup Metadata**
    - Save recordCounts in backup documentation
-   - Link backup ID to Mux backupId
+   - Link backup ID to Stellvex backupId
    - Store in disaster recovery runbook
 
 ## Restore Procedures

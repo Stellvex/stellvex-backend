@@ -32,7 +32,7 @@ describe('POST /users/find-or-create (e2e)', () => {
     it('should reject an invalid API key', async () => {
       const response = await request(app.getHttpServer())
         .post('/users/find-or-create')
-        .set('Authorization', 'Bearer mux_test_invalidkey')
+        .set('Authorization', 'Bearer stellvex_test_invalidkey')
         .send({ authId: 'test-auth-id-e2e' });
 
       expect(response.status).toBe(HttpStatus.UNAUTHORIZED);
@@ -44,7 +44,7 @@ describe('POST /users/find-or-create (e2e)', () => {
       // With an invalid key we expect 401, not 404 — confirming the route is registered
       const response = await request(app.getHttpServer())
         .post('/users/find-or-create')
-        .set('Authorization', 'Bearer mux_test_somekey')
+        .set('Authorization', 'Bearer stellvex_test_somekey')
         .send({ authId: 'test-auth-id-e2e' });
 
       expect(response.status).not.toBe(HttpStatus.NOT_FOUND);

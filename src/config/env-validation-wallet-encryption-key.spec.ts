@@ -10,7 +10,7 @@ import { validateEnv } from './env.validation';
 
 const BASE_ENV: NodeJS.ProcessEnv = {
   NODE_ENV: 'test',
-  DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_test',
+  DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_test',
   WALLET_ENCRYPTION_KEY: 'a'.repeat(48),
   EXPORT_SIGNING_SECRET: 'b'.repeat(32),
   STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',

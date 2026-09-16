@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 
 /**
  * All recognized FEATURE_* environment variable names.
- * These gate the core API surfaces of Mux Backend.
+ * These gate the core API surfaces of Stellvex Backend.
  * In development (NODE_ENV !== 'production') unset flags default to ENABLED.
  * In production (NODE_ENV === 'production') unset flags ALSO default to ENABLED
  * so a fresh deploy serves all core APIs out of the box.  A flag must be

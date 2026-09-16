@@ -73,7 +73,7 @@ describe('Wallets Protected Endpoint (e2e)', () => {
   it('/v1/wallets/protected (GET) with valid ApiKey returns 200 and context', async () => {
     const res = await request(app.getHttpServer())
       .get('/v1/wallets/protected')
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .expect(200);
 
     expect(res.body).toHaveProperty('message');
@@ -84,7 +84,7 @@ describe('Wallets Protected Endpoint (e2e)', () => {
   it('/v1/wallets (POST) creates a wallet and returns x-request-id header', async () => {
     const res = await request(app.getHttpServer())
       .post('/v1/wallets')
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .set('x-request-id', 'req-456')
       .send({ userId: 'user-123', network: 'TESTNET', idempotencyKey: 'idem-123' })
       .expect(200);
@@ -101,7 +101,7 @@ describe('Wallets Protected Endpoint (e2e)', () => {
   it('/v1/wallets/:id/status (GET) returns wallet status and propagates request id', async () => {
     const res = await request(app.getHttpServer())
       .get('/v1/wallets/wallet-123/status')
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .set('x-request-id', 'req-789')
       .expect(200);
 

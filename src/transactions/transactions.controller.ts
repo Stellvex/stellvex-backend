@@ -166,7 +166,7 @@ export class TransactionsController {
     summary: 'Submit a fee-bump transaction to Stellar',
     description:
       'Wraps an inner signed transaction XDR with a fee-source account that sponsors ' +
-      'the network fee.  The fee-source wallet must be registered in Mux ' +
+      'the network fee.  The fee-source wallet must be registered in Stellvex ' +
       '(feeSourceWalletId) so the service can retrieve the signing key.',
   })
   @ApiBody({

@@ -27,7 +27,7 @@ describe('API Key Hashing and Security (e2e)', () => {
   });
 
   describe('API Key Hashing', () => {
-    it('should generate API keys with mux_ prefix', async () => {
+    it('should generate API keys with stellvex_ prefix', async () => {
       // We can't directly call createApiKey without a valid project,
       // but we can verify the format through the private hashApiKey method
       // by checking that the service exists and has the method
@@ -38,7 +38,7 @@ describe('API Key Hashing and Security (e2e)', () => {
 
     it('should use SHA-256 hashing for API keys', () => {
       // Verify that the hash function is deterministic
-      const testKey = 'mux_test_abcdef1234567890';
+      const testKey = 'stellvex_test_abcdef1234567890';
       const hash1 = apiKeyService['hashApiKey'](testKey);
       const hash2 = apiKeyService['hashApiKey'](testKey);
 
@@ -53,8 +53,8 @@ describe('API Key Hashing and Security (e2e)', () => {
     });
 
     it('should produce different hashes for different keys', () => {
-      const key1 = 'mux_test_key1';
-      const key2 = 'mux_test_key2';
+      const key1 = 'stellvex_test_key1';
+      const key2 = 'stellvex_test_key2';
 
       const hash1 = apiKeyService['hashApiKey'](key1);
       const hash2 = apiKeyService['hashApiKey'](key2);
@@ -64,7 +64,7 @@ describe('API Key Hashing and Security (e2e)', () => {
 
     it('should be resistant to collision attacks', () => {
       // Even small changes in input should produce completely different hashes
-      const baseKey = 'mux_test_';
+      const baseKey = 'stellvex_test_';
       const hashes = new Set();
 
       for (let i = 0; i < 100; i++) {
@@ -84,7 +84,7 @@ describe('API Key Hashing and Security (e2e)', () => {
       // This prevents timing attacks where an attacker could measure
       // how long the comparison takes to infer correct characters
 
-      const testKey = 'mux_test_validkey';
+      const testKey = 'stellvex_test_validkey';
       const hash1 = apiKeyService['hashApiKey'](testKey);
       const hash2 = apiKeyService['hashApiKey'](testKey);
 
@@ -101,7 +101,7 @@ describe('API Key Hashing and Security (e2e)', () => {
     it('should never store plaintext keys in the database', () => {
       // The API key service should only store:
       // 1. keyHash (SHA-256 hash)
-      // 2. keyPrefix (e.g., "mux_test_")
+      // 2. keyPrefix (e.g., "stellvex_test_")
       // 3. lastFour (last 4 characters for identification)
       //
       // But never the plaintext key itself
@@ -131,13 +131,13 @@ describe('API Key Hashing and Security (e2e)', () => {
 
   describe('API Key Validation Security', () => {
     it('should reject API keys with invalid format', async () => {
-      // Keys without mux_ prefix should be rejected
+      // Keys without stellvex_ prefix should be rejected
       expect(
         apiKeyService.validateApiKey('invalid_key').catch((e) => e),
       ).rejects.toThrow();
 
       expect(
-        apiKeyService.validateApiKey('notamuxkey').catch((e) => e),
+        apiKeyService.validateApiKey('notavalidkey').catch((e) => e),
       ).rejects.toThrow();
 
       expect(apiKeyService.validateApiKey('').catch((e) => e)).rejects.toThrow();
@@ -175,7 +175,7 @@ describe('API Key Hashing and Security (e2e)', () => {
       // Even when validation fails, error messages should not contain
       // the plaintext key or its hash
 
-      const testKey = 'mux_test_someinvalidkey';
+      const testKey = 'stellvex_test_someinvalidkey';
 
       try {
         await apiKeyService.validateApiKey(testKey);
@@ -205,7 +205,7 @@ describe('API Key Hashing and Security (e2e)', () => {
       // This is important for distributed systems where keys might be
       // validated on different instances
 
-      const key = 'mux_test_consistency_check';
+      const key = 'stellvex_test_consistency_check';
       const hash1 = apiKeyService['hashApiKey'](key);
 
       // Create a new instance and verify same hash
@@ -218,7 +218,7 @@ describe('API Key Hashing and Security (e2e)', () => {
       // SHA-256 is cryptographically secure and recommended for password hashing
       // (though bcrypt/Argon2 would be even better for password hashes)
 
-      const testKey = 'mux_test_hash_strength';
+      const testKey = 'stellvex_test_hash_strength';
       const hash = apiKeyService['hashApiKey'](testKey);
 
       // SHA-256 produces 64 hex characters

@@ -370,7 +370,7 @@ model ApiKey {
   /// Hashed API key (never store plaintext)
   keyHash         String       @unique
 
-  /// Key prefix for identification (e.g., "mux_live_" or "mux_test_")
+  /// Key prefix for identification (e.g., "stellvex_live_" or "stellvex_test_")
   keyPrefix       String
 
   /// Last 4 characters of the key for identification

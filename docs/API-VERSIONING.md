@@ -1,6 +1,6 @@
 # API Versioning Strategy
 
-This document describes how the Mux backend versions its public HTTP API.
+This document describes how the Stellvex backend versions its public HTTP API.
 
 ## Current approach: URI path versioning
 
@@ -22,7 +22,7 @@ Found` — there is no unversioned fallback.
   and in reverse-proxy/CDN routing rules, without relying on a header that
   intermediaries may strip.
 - **Simple for consumers**: partners and the frontend hard-code a base URL
-  (e.g. `https://api.mux.dev/v1`) rather than needing to set a custom header
+  (e.g. `https://api.stellvex.dev/v1`) rather than needing to set a custom header
   on every request.
 - **Matches existing NestJS conventions** in this repo — a single
   `setGlobalPrefix` call versions every controller without per-route

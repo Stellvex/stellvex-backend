@@ -8,7 +8,7 @@ const makeConfigService = (values: Record<string, string | undefined>) => ({
 
 const ALL_VARS_PRESENT = {
   NODE_ENV: 'test',
-  DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+  DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
   STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
   STELLAR_HORIZON_MAINNET_URL: 'https://horizon.stellar.org',
   FEATURE_MAINNET_PAYMENTS: 'true',
@@ -57,7 +57,7 @@ describe('TransactionEnvValidatorService', () => {
     it('throws when STELLAR_HORIZON_URL is missing', async () => {
       const service = await buildService({
         NODE_ENV: 'test',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: undefined,
       });
 
@@ -89,7 +89,7 @@ describe('TransactionEnvValidatorService', () => {
     it('allows missing STELLAR_HORIZON_MAINNET_URL in test environment', async () => {
       const service = await buildService({
         NODE_ENV: 'test',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: undefined,
         FEATURE_MAINNET_PAYMENTS: 'true',
@@ -101,7 +101,7 @@ describe('TransactionEnvValidatorService', () => {
     it('throws when STELLAR_HORIZON_MAINNET_URL is missing in production with mainnet payments enabled', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: undefined,
         FEATURE_MAINNET_PAYMENTS: 'true',
@@ -115,7 +115,7 @@ describe('TransactionEnvValidatorService', () => {
     it('throws when STELLAR_HORIZON_MAINNET_URL is empty string in production', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: '',
         FEATURE_MAINNET_PAYMENTS: 'true',
@@ -129,7 +129,7 @@ describe('TransactionEnvValidatorService', () => {
     it('throws when STELLAR_HORIZON_MAINNET_URL is invalid URL', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: 'not-a-valid-url',
         FEATURE_MAINNET_PAYMENTS: 'true',
@@ -143,7 +143,7 @@ describe('TransactionEnvValidatorService', () => {
     it('allows missing STELLAR_HORIZON_MAINNET_URL when mainnet payments explicitly disabled', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: undefined,
         FEATURE_MAINNET_PAYMENTS: 'false',
@@ -155,7 +155,7 @@ describe('TransactionEnvValidatorService', () => {
     it('treats "FALSE" (case-insensitive) as disabled flag', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: undefined,
         FEATURE_MAINNET_PAYMENTS: 'FALSE',
@@ -167,7 +167,7 @@ describe('TransactionEnvValidatorService', () => {
     it('succeeds when all mainnet config is valid in production', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: 'https://horizon.stellar.org',
         FEATURE_MAINNET_PAYMENTS: 'true',
@@ -179,7 +179,7 @@ describe('TransactionEnvValidatorService', () => {
     it('treats any non-"false" value as enabled feature flag', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: 'https://horizon.stellar.org',
         FEATURE_MAINNET_PAYMENTS: '', // Empty string is treated as enabled
@@ -191,7 +191,7 @@ describe('TransactionEnvValidatorService', () => {
     it('accepts valid https URLs for mainnet endpoint', async () => {
       const service = await buildService({
         NODE_ENV: 'production',
-        DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
         STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
         STELLAR_HORIZON_MAINNET_URL: 'https://custom.horizon.example.com/path',
         FEATURE_MAINNET_PAYMENTS: 'true',

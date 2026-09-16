@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the key decrypt failure handling feature added to the Mux Protocol backend's key management system. The feature ensures that encryption/decryption failures are detected, logged, reported, and surfaced with proper HTTP status codes and structured error responses.
+This document describes the key decrypt failure handling feature added to the Stellvex Protocol backend's key management system. The feature ensures that encryption/decryption failures are detected, logged, reported, and surfaced with proper HTTP status codes and structured error responses.
 
 ## Motivation
 

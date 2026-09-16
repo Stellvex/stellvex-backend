@@ -125,7 +125,7 @@ describe('WebhookDlqAlertService — ops webhook enabled', () => {
     expect(mockedAxios.post).toHaveBeenCalledWith(
       OPS_URL,
       expect.objectContaining({
-        service: 'mux-backend',
+        service: 'stellvex-backend',
         event: 'dlq.threshold_breached',
         dlqDepth: 15,
         alerts: expect.arrayContaining([
@@ -197,7 +197,7 @@ describe('WebhookDlqAlertService — ops webhook enabled', () => {
 
     const [, payload] = mockedAxios.post.mock.calls[0];
     expect(typeof (payload as any).text).toBe('string');
-    expect((payload as any).text).toContain('mux-backend');
+    expect((payload as any).text).toContain('stellvex-backend');
     expect((payload as any).text).toContain('DLQ');
   });
 

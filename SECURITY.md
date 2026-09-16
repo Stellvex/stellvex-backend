@@ -2,7 +2,7 @@
 
 ## Vulnerability Disclosure
 
-Mux Backend is a custody and blockchain relay platform that manages private keys, signs transactions, and handles sensitive financial operations. **Vulnerabilities must be reported privately** to prevent exploitation or public disclosure of attack vectors.
+Stellvex Backend is a custody and blockchain relay platform that manages private keys, signs transactions, and handles sensitive financial operations. **Vulnerabilities must be reported privately** to prevent exploitation or public disclosure of attack vectors.
 
 ### Reporting a Vulnerability
 
@@ -10,7 +10,7 @@ Mux Backend is a custody and blockchain relay platform that manages private keys
 
 Instead, report security vulnerabilities privately via email:
 
-**📧 Email:** [security@mux.com](mailto:security@mux.com)
+**📧 Email:** [security@stellvex.com](mailto:security@stellvex.com)
 
 Include the following in your report:
 - Description of the vulnerability and its impact
@@ -153,8 +153,8 @@ Before deploying to production:
 
 ## Security Contacts
 
-- **Security Email:** [security@mux.com](mailto:security@mux.com)
-- **PGP Key:** Available at [mux.com/security.pgp](https://mux.com/security.pgp) (coming soon)
+- **Security Email:** [security@stellvex.com](mailto:security@stellvex.com)
+- **PGP Key:** Available at [stellvex.com/security.pgp](https://stellvex.com/security.pgp) (coming soon)
 - **Response Time:** See SLA section above
 
 ---

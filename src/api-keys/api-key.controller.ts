@@ -70,7 +70,7 @@ export class ApiKeyController {
           properties: {
             id: { type: 'string', example: 'apikey-uuid-here' },
             name: { type: 'string', example: 'production-key' },
-            keyPrefix: { type: 'string', example: 'mux_live_' },
+            keyPrefix: { type: 'string', example: 'stellvex_live_' },
             lastFour: { type: 'string', example: 'Ab1C' },
             status: { type: 'string', example: 'ACTIVE' },
             createdAt: { type: 'string', format: 'date-time' },
@@ -78,7 +78,7 @@ export class ApiKeyController {
         },
         plainTextKey: {
           type: 'string',
-          example: 'mux_live_AbCdEfGhIjKlMnOpQrStUvWx',
+          example: 'stellvex_live_AbCdEfGhIjKlMnOpQrStUvWx',
         },
       },
     },
@@ -151,7 +151,7 @@ export class ApiKeyController {
             properties: {
               id: { type: 'string', example: 'apikey-uuid-here' },
               name: { type: 'string', example: 'production-key' },
-              keyPrefix: { type: 'string', example: 'mux_live_' },
+              keyPrefix: { type: 'string', example: 'stellvex_live_' },
               lastFour: { type: 'string', example: 'Ab1C' },
               status: { type: 'string', example: 'ACTIVE' },
               lastUsedAt: { type: 'string', format: 'date-time', nullable: true },
@@ -304,13 +304,13 @@ export class ApiKeyController {
           properties: {
             id: { type: 'string', example: 'apikey-new-uuid' },
             name: { type: 'string', example: 'production-key-v2' },
-            keyPrefix: { type: 'string', example: 'mux_live_' },
+            keyPrefix: { type: 'string', example: 'stellvex_live_' },
             lastFour: { type: 'string', example: 'Xy9Z' },
             status: { type: 'string', example: 'ACTIVE' },
             createdAt: { type: 'string', format: 'date-time' },
           },
         },
-        plainTextKey: { type: 'string', example: 'mux_live_XyZaBcDeFgHiJkLmNoPqRsTuV' },
+        plainTextKey: { type: 'string', example: 'stellvex_live_XyZaBcDeFgHiJkLmNoPqRsTuV' },
       },
     },
   })

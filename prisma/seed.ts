@@ -12,19 +12,19 @@ async function main() {
   const demoUsers = [
     {
       authId: 'demo-user-001',
-      email: 'alice@demo.mux.dev',
+      email: 'alice@demo.stellvex.dev',
       displayName: 'Alice Demo',
       authProvider: 'DEMO',
     },
     {
       authId: 'demo-user-002',
-      email: 'bob@demo.mux.dev',
+      email: 'bob@demo.stellvex.dev',
       displayName: 'Bob Demo',
       authProvider: 'DEMO',
     },
     {
       authId: 'demo-user-003',
-      email: 'carol@demo.mux.dev',
+      email: 'carol@demo.stellvex.dev',
       displayName: 'Carol Demo',
       authProvider: 'DEMO',
     },
@@ -169,9 +169,9 @@ async function main() {
 
   const onboardingDevelopers = [
     {
-      email: 'alice@developer.mux.dev',
+      email: 'alice@developer.stellvex.dev',
       name: 'Alice Developer',
-      company: 'Mux Labs',
+      company: 'Stellvex',
       status: 'ACTIVE',
       projectId: 'project-onboard-alice',
       projectName: 'Alice Starter Project',
@@ -180,9 +180,9 @@ async function main() {
       rateLimitRpm: 100,
     },
     {
-      email: 'bob@developer.mux.dev',
+      email: 'bob@developer.stellvex.dev',
       name: 'Bob Developer',
-      company: 'Mux Labs',
+      company: 'Stellvex',
       status: 'ACTIVE',
       projectId: 'project-onboard-bob',
       projectName: 'Bob Starter Project',

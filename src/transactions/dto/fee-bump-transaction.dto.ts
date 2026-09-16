@@ -39,12 +39,12 @@ export class FeeBumpTransactionDto {
   feeSourcePublicKey: string;
 
   /**
-   * Wallet ID of the fee-source account within Mux.
+   * Wallet ID of the fee-source account within Stellvex.
    * Used to look up the encrypted private key for signing the fee-bump envelope.
    */
   @ApiProperty({
     description:
-      'Mux wallet ID of the fee-source account (used to retrieve the signing key).',
+      'Stellvex wallet ID of the fee-source account (used to retrieve the signing key).',
     example: '550e8400-e29b-41d4-a716-446655440000',
   })
   @IsString()
@@ -52,12 +52,12 @@ export class FeeBumpTransactionDto {
   feeSourceWalletId: string;
 
   /**
-   * Internal Mux transaction ID of the original inner transaction.
+   * Internal Stellvex transaction ID of the original inner transaction.
    * Used to update the persisted status after the fee-bump submission.
    */
   @ApiPropertyOptional({
     description:
-      'Internal Mux transaction ID of the original transaction (used to update status).',
+      'Internal Stellvex transaction ID of the original transaction (used to update status).',
     example: '550e8400-e29b-41d4-a716-446655440001',
   })
   @IsOptional()
@@ -86,7 +86,7 @@ export class FeeBumpResultDto {
   })
   status: string;
 
-  @ApiPropertyOptional({ description: 'Internal Mux transaction ID (if provided).' })
+  @ApiPropertyOptional({ description: 'Internal Stellvex transaction ID (if provided).' })
   transactionId?: string;
 
   @ApiPropertyOptional({ description: 'Fee charged (in stroops).' })

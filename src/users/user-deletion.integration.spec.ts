@@ -254,7 +254,7 @@ describe('UsersService user deletion (integration)', () => {
           ...errorSpy.mock.calls,
         ]);
         expect(allLogged).not.toContain('WALLET_ENCRYPTION_KEY');
-        expect(allLogged).not.toContain('mux_live_');
+        expect(allLogged).not.toContain('stellvex_live_');
         expect(allLogged).not.toContain('enc-secret');
         expect(allLogged).not.toContain('seed');
 

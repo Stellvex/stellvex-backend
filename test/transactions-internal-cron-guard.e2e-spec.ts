@@ -64,7 +64,7 @@ describe('TransactionsInternalController - CronSecretGuard enforcement (E2E)', (
     it('POST /v1/transactions/internal/poll-pending still returns 401', async () => {
       const response = await request(app.getHttpServer())
         .post('/v1/transactions/internal/poll-pending')
-        .set('Authorization', 'Bearer mux_live_not_a_real_key');
+        .set('Authorization', 'Bearer stellvex_live_not_a_real_key');
 
       expect(response.status).toBe(HttpStatus.UNAUTHORIZED);
     });
@@ -72,7 +72,7 @@ describe('TransactionsInternalController - CronSecretGuard enforcement (E2E)', (
     it('GET /v1/transactions/internal/stuck-pending still returns 401', async () => {
       const response = await request(app.getHttpServer())
         .get('/v1/transactions/internal/stuck-pending')
-        .set('Authorization', 'Bearer mux_live_not_a_real_key');
+        .set('Authorization', 'Bearer stellvex_live_not_a_real_key');
 
       expect(response.status).toBe(HttpStatus.UNAUTHORIZED);
     });

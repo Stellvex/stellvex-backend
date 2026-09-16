@@ -2,7 +2,7 @@
 
 ## Overview
 
-This runbook provides procedures for detecting, diagnosing, and recovering from failed database migrations in the Mux Backend API.
+This runbook provides procedures for detecting, diagnosing, and recovering from failed database migrations in the Stellvex Backend API.
 
 ## Quick Reference
 
@@ -56,7 +56,7 @@ psql -U $DB_USER -d $DB_NAME -c "SELECT * FROM pg_stat_activity WHERE state = 'a
 
 1. **Stop the application**
    ```bash
-   kubectl scale deployment mux-api --replicas=0
+   kubectl scale deployment stellvex-api --replicas=0
    ```
 
 2. **Identify the failed migration**
@@ -81,7 +81,7 @@ psql -U $DB_USER -d $DB_NAME -c "SELECT * FROM pg_stat_activity WHERE state = 'a
 
 6. **Restart application**
    ```bash
-   kubectl scale deployment mux-api --replicas=3
+   kubectl scale deployment stellvex-api --replicas=3
    ```
 
 ### Scenario 2: Constraint Violation
@@ -203,7 +203,7 @@ psql -U $DB_USER -d $DB_NAME -c "SELECT * FROM pg_stat_activity WHERE state = 'a
 
 4. **Monitor application health**
    ```bash
-   kubectl logs -f deployment/mux-api -c mux-api | grep -E "ERROR|WARN|migration"
+   kubectl logs -f deployment/stellvex-api -c stellvex-api | grep -E "ERROR|WARN|migration"
    ```
 
 ---
@@ -273,7 +273,7 @@ ALTER TABLE payments ALTER COLUMN assetCode SET NOT NULL;
 
 **Contact:**
 - On-call DBA: `@dba-oncall` (Slack)
-- Database team: `database-team@mux-labs.com`
+- Database team: `database-team@stellvex.com`
 - CTO: For critical data loss scenarios
 
 ---
@@ -293,4 +293,4 @@ All failed migrations are tracked via `MigrationRecoveryService`:
 
 - [Prisma Migrations Guide](https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate)
 - [PostgreSQL Transaction Handling](https://www.postgresql.org/docs/current/runtime-config-client.html)
-- [Mux Backend Architecture](../docs/architecture.md)
+- [Stellvex Backend Architecture](../docs/architecture.md)

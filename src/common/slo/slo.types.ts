@@ -1,5 +1,5 @@
 /**
- * Latency SLO definitions for the Mux Backend API.
+ * Latency SLO definitions for the Stellvex Backend API.
  *
  * Each SLO specifies:
  *  - The route pattern it applies to (used for tag-based grouping)

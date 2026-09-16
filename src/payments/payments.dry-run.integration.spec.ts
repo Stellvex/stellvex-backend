@@ -91,7 +91,7 @@ describe('Payment dry-run HTTP contract', () => {
 
     const response = await request(app.getHttpServer())
       .post('/v1/payments/dry-run')
-      .set('Authorization', 'Bearer mux_test_valid')
+      .set('Authorization', 'Bearer stellvex_test_valid')
       .send({
         walletId: 'sender-wallet',
         receiverWalletId: 'receiver-wallet',
@@ -111,7 +111,7 @@ describe('Payment dry-run HTTP contract', () => {
   it('returns the standard 400 response for invalid input', async () => {
     const response = await request(app.getHttpServer())
       .post('/v1/payments/dry-run')
-      .set('Authorization', 'Bearer mux_test_valid')
+      .set('Authorization', 'Bearer stellvex_test_valid')
       .send({
         walletId: 'sender-wallet',
         receiverWalletId: 'receiver-wallet',

@@ -67,7 +67,7 @@ export class ApiKeyService implements OnModuleDestroy {
 
   /**
    * Generates a new API key for a project
-   * Format: mux_{environment}_{random32chars}
+   * Format: stellvex_{environment}_{random32chars}
    */
   async createApiKey(
     request: CreateApiKeyRequest,
@@ -86,13 +86,13 @@ export class ApiKeyService implements OnModuleDestroy {
     // Generate API key
     const environment = project.environment === 'production' ? 'live' : 'test';
     const randomPart = crypto.randomBytes(24).toString('base64url'); // 32 chars
-    const plainTextKey = `mux_${environment}_${randomPart}`;
+    const plainTextKey = `stellvex_${environment}_${randomPart}`;
 
     // Hash the key for storage
     const keyHash = this.hashApiKey(plainTextKey);
 
     // Extract metadata
-    const keyPrefix = `mux_${environment}_`;
+    const keyPrefix = `stellvex_${environment}_`;
     const lastFour = randomPart.slice(-4);
 
     const expiresAt = request.expiresAt
@@ -133,7 +133,7 @@ export class ApiKeyService implements OnModuleDestroy {
    * additional timing-safe comparison as a defense-in-depth measure.
    */
   async validateApiKey(plainTextKey: string): Promise<ApiKeyInfo> {
-    if (!plainTextKey || !plainTextKey.startsWith('mux_')) {
+    if (!plainTextKey || !plainTextKey.startsWith('stellvex_')) {
       throw new UnauthorizedException('Invalid API key format');
     }
 

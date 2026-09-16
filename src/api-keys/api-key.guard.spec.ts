@@ -53,7 +53,7 @@ describe('ApiKeyGuard', () => {
     jest.spyOn(reflector, 'get').mockReturnValue(true);
 
     const req: any = {
-      headers: { authorization: 'ApiKey mux_test_abc', 'user-agent': 'jest' },
+      headers: { authorization: 'ApiKey stellvex_test_abc', 'user-agent': 'jest' },
       path: '/wallets/protected',
       method: 'GET',
       ip: '127.0.0.1',
@@ -106,7 +106,7 @@ describe('ApiKeyGuard', () => {
 
     const req: any = {
       headers: {
-        authorization: 'ApiKey mux_test_abc',
+        authorization: 'ApiKey stellvex_test_abc',
         'user-agent': 'jest',
       },
       path: '/wallets/protected',

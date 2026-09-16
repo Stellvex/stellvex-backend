@@ -323,7 +323,7 @@ describe('#787 redactSensitiveHeaders()', () => {
   });
 
   it('replaces X-API-Key with [REDACTED]', () => {
-    const result = redactSensitiveHeaders({ 'x-api-key': 'mux_live_abc123' });
+    const result = redactSensitiveHeaders({ 'x-api-key': 'stellvex_live_abc123' });
     expect(result['x-api-key']).toBe('[REDACTED]');
   });
 
@@ -409,7 +409,7 @@ describe('#787 requestLogger — sensitive headers are never logged', () => {
       method: 'GET',
       originalUrl: '/v1/wallets',
       headers: {
-        'x-api-key': 'mux_live_VERY_SECRET_KEY_12345',
+        'x-api-key': 'stellvex_live_VERY_SECRET_KEY_12345',
       },
       ip: '10.0.0.2',
     };
@@ -424,7 +424,7 @@ describe('#787 requestLogger — sensitive headers are never logged', () => {
     requestLogger(req, res, next);
 
     for (const line of loggedLines) {
-      expect(line).not.toContain('mux_live_VERY_SECRET_KEY_12345');
+      expect(line).not.toContain('stellvex_live_VERY_SECRET_KEY_12345');
     }
   });
 

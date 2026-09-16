@@ -257,7 +257,7 @@ export class FeeBumpService {
   }
 
   /**
-   * Compute the fee (in stroops) Mux will sponsor on a fee-bump.
+   * Compute the fee (in stroops) Stellvex will sponsor on a fee-bump.
    * Currently 10× the network base fee to ensure the tx is accepted.
    */
   private computeFeeStroops(): number {

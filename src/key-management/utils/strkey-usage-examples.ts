@@ -2,7 +2,7 @@
  * StrKey Helper Usage Examples
  *
  * This file provides practical examples of using the StrKeyHelper
- * in various scenarios within the Mux Protocol.
+ * in various scenarios within the Stellvex Protocol.
  */
 
 import { StrKeyHelper } from './strkey.helper';

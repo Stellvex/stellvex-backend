@@ -1,14 +1,14 @@
-# Mux Backend
+# Stellvex Backend
 
-Backend infrastructure for **Mux Protocol** — powering invisible wallets, payment orchestration, and smart contract interaction on **Stellar (Soroban)**.
+Backend infrastructure for **Stellvex Protocol** — powering invisible wallets, payment orchestration, and smart contract interaction on **Stellar (Soroban)**.
 
-Mux Backend abstracts blockchain complexity behind a secure, Web2-friendly API, enabling users to interact with crypto without managing keys, gas, or wallets directly.
+Stellvex Backend abstracts blockchain complexity behind a secure, Web2-friendly API, enabling users to interact with crypto without managing keys, gas, or wallets directly.
 
 ---
 
 ## Overview
 
-Mux Backend is the trusted coordination layer between:
+Stellvex Backend is the trusted coordination layer between:
 
 * Web2 authentication providers (Clerk / Better Auth) — verified via cryptographic JWT validation
 * Stellar accounts and Soroban smart contracts
@@ -216,7 +216,7 @@ Authorization: Bearer <jwt_token_from_clerk_or_better_auth>
 
 ## Supported Authentication Providers
 
-Mux Backend supports the following identity providers for user authentication:
+Stellvex Backend supports the following identity providers for user authentication:
 
 ### Clerk (`CLERK`)
 
@@ -249,14 +249,14 @@ To add support for additional providers:
 
 ## Authentication & Trust Model
 
-Mux Backend uses a **server-side verification only** trust model for user authentication. This is critical given that the backend custodies Stellar private keys and relays sponsored transactions.
+Stellvex Backend uses a **server-side verification only** trust model for user authentication. This is critical given that the backend custodies Stellar private keys and relays sponsored transactions.
 
 ### What is Verified
 
 1. **JWT Signature**: Every authentication request requires a signed JWT token from the configured identity provider (Clerk or Better Auth). The backend cryptographically verifies the token signature using the provider's public keys. Tampered, forged, or unsigned tokens are rejected.
 
 2. **Token Claims**: The verified token must contain:
-   - `sub` (subject): The user's unique identifier in the identity provider system. This becomes the `authId` in Mux Backend.
+   - `sub` (subject): The user's unique identifier in the identity provider system. This becomes the `authId` in Stellvex Backend.
    - `auth_provider`: The identity provider name (CLERK, BETTER_AUTH, etc.). This becomes the `authProvider`.
 
 3. **User Status**: After identity is verified from the JWT, the backend checks the local user record's status field. Users with status `INACTIVE` or `SUSPENDED` are rejected, even if their JWT is valid. This allows operators to disable compromised or abusive accounts immediately.
@@ -327,7 +327,7 @@ requires `X-Recovery-Admin-Secret` and `X-Admin-ID`; production requires
 
 #### Fee-Bump Transactions
 
-Mux Backend supports Stellar fee-bump transactions, allowing a platform sponsor account to pay transaction fees on behalf of users. The `FeeBumpService` wraps signed inner transactions in a fee-bump envelope before submission to Horizon.
+Stellvex Backend supports Stellar fee-bump transactions, allowing a platform sponsor account to pay transaction fees on behalf of users. The `FeeBumpService` wraps signed inner transactions in a fee-bump envelope before submission to Horizon.
 
 ### Mainnet Payment Submit Kill-Switch
 
@@ -422,8 +422,8 @@ To guarantee security, the application validates critical environment variables 
 
 | Environment | Connection string |
 |---|---|
-| Local dev | `postgresql://postgres:postgres@localhost:5432/mux_dev` |
-| Docker Compose | `postgresql://postgres:postgres@db:5432/mux_dev` |
+| Local dev | `postgresql://postgres:postgres@localhost:5432/stellvex_dev` |
+| Docker Compose | `postgresql://postgres:postgres@db:5432/stellvex_dev` |
 | Supabase | `postgresql://postgres:[password]@db.[project].supabase.co:5432/postgres` |
 | Railway / Render | Use the connection string provided by the platform |
 
@@ -461,7 +461,7 @@ A new developer API route is available: `GET /developers/:id/projects` returns t
 
 ### Key Management Architecture
 
-Mux Backend uses a consolidated `KeyManagementService` for all cryptographic key operations:
+Stellvex Backend uses a consolidated `KeyManagementService` for all cryptographic key operations:
 
 **Key Features:**
 - ✅ Single source of truth for key generation
@@ -485,14 +485,14 @@ Mux Backend uses a consolidated `KeyManagementService` for all cryptographic key
 
 ## Authentication Flow
 
-Mux Backend supports two authentication mechanisms:
+Stellvex Backend supports two authentication mechanisms:
 
 ### 1. API Key Authentication (Recommended for Backend Services)
 
 API keys are used for server-to-server communication and administrative tasks. Each key is securely hashed before storage.
 
 **Key Characteristics:**
-- Format: `mux_live_<random32chars>` or `mux_test_<random32chars>`
+- Format: `stellvex_live_<random32chars>` or `stellvex_test_<random32chars>`
 - Transmitted via `Authorization: Bearer <key>` header
 - Returned only once at creation time
 - Hashed with SHA-256 before storage in database
@@ -552,7 +552,7 @@ User authentication is orchestrated via the auth service and integrates with Web
 
 **Request Flow for API Key Protected Endpoints:**
 
-1. Client sends request with `Authorization: Bearer mux_live_...` header
+1. Client sends request with `Authorization: Bearer stellvex_live_...` header
 2. ApiKeyGuard intercepts request and extracts the key
 3. Guard delegates to ApiKeyService for validation:
    - Hash the provided key with SHA-256
@@ -636,9 +636,9 @@ check loop or normal webhook delivery.
 
 ```json
 {
-  "service": "mux-backend",
+  "service": "stellvex-backend",
   "event": "dlq.threshold_breached",
-  "text": "[mux-backend] DLQ threshold breached: ...",
+  "text": "[stellvex-backend] DLQ threshold breached: ...",
   "dlqDepth": 55,
   "totalDeliveries": 500,
   "dlqPercentage": 11.0,
@@ -800,7 +800,7 @@ All sync and reconciliation operations create a `BalanceSyncJob` record for audi
 
 ## Webhooks
 
-Webhooks allow your application to receive real-time notifications when events occur in Mux Protocol.
+Webhooks allow your application to receive real-time notifications when events occur in Stellvex Protocol.
 
 ### Endpoint CRUD
 

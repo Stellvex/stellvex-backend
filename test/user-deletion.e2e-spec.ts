@@ -86,7 +86,7 @@ describe('DELETE /users/:id (e2e)', () => {
   it('deletes the user and echoes the x-request-id header', async () => {
     const res = await request(app.getHttpServer())
       .delete('/v1/users/user-123')
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .set('X-Request-ID', 'req-delete-1')
       .expect(200);
 
@@ -101,7 +101,7 @@ describe('DELETE /users/:id (e2e)', () => {
   it('generates and returns a request id when the header is absent', async () => {
     const res = await request(app.getHttpServer())
       .delete('/v1/users/user-456')
-      .set('Authorization', 'ApiKey mux_test_abc')
+      .set('Authorization', 'ApiKey stellvex_test_abc')
       .expect(200);
 
     expect(typeof res.headers['x-request-id']).toBe('string');

@@ -8,21 +8,21 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: mux
-      POSTGRES_PASSWORD: mux_secret
-      POSTGRES_DB: mux_db
+      POSTGRES_USER: stellvex
+      POSTGRES_PASSWORD: stellvex_secret
+      POSTGRES_DB: stellvex_db
     ports:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U mux -d mux_db']
+      test: ['CMD-SHELL', 'pg_isready -U stellvex -d stellvex_db']
       interval: 5s
       timeout: 5s
       retries: 10
 
   # ─────────────────────────────────────────────────────────
-  # Mux backend API
+  # Stellvex backend API
   # ─────────────────────────────────────────────────────────
   api:
     build:
@@ -32,7 +32,7 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql://mux:mux_secret@db:5432/mux_db
+      DATABASE_URL: postgresql://stellvex:stellvex_secret@db:5432/stellvex_db
       PORT: 3000
     ports:
       - '3000:3000'

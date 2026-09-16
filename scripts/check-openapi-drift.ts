@@ -68,8 +68,8 @@ async function checkDrift() {
   app.setGlobalPrefix('v1');
 
   const config = new DocumentBuilder()
-    .setTitle('Mux Backend API')
-    .setDescription('Wallet, payment, and custody API for mux-backend')
+    .setTitle('Stellvex Backend API')
+    .setDescription('Wallet, payment, and custody API for stellvex-backend')
     .setVersion('1.0')
     .addApiKey({ type: 'apiKey', in: 'header', name: 'X-API-Key' }, 'api-key')
     .addGlobalParameters({

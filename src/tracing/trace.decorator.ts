@@ -32,7 +32,7 @@ export function Trace(
     const spanKind = options.kind ?? SpanKind.INTERNAL;
 
     descriptor.value = function (this: unknown, ...args: unknown[]): unknown {
-      const tracer = trace.getTracer('mux-backend');
+      const tracer = trace.getTracer('stellvex-backend');
       const span = tracer.startSpan(resolvedSpanName, { kind: spanKind });
 
       const ctx = trace.setSpan(context.active(), span);

@@ -1,6 +1,6 @@
 # Docker Compose Local Setup
 
-This guide explains how to run the full mux-backend stack locally using Docker Compose — PostgreSQL + API in one command.
+This guide explains how to run the full stellvex-backend stack locally using Docker Compose — PostgreSQL + API in one command.
 
 ## Prerequisites
 
@@ -96,9 +96,9 @@ ports:
 ```
 Host:     localhost
 Port:     5432
-User:     mux
-Password: mux_secret
-Database: mux_db
+User:     stellvex
+Password: stellvex_secret
+Database: stellvex_db
 ```
 
 ---

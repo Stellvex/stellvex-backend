@@ -121,7 +121,7 @@ export class ApiKeyGuard implements CanActivate {
 
   /**
    * Extracts API key from Authorization header
-   * Supports: "Bearer mux_live_..." or "ApiKey mux_live_..."
+   * Supports: "Bearer stellvex_live_..." or "ApiKey stellvex_live_..."
    */
   private extractApiKey(request: Request): string | null {
     const authHeader = request.headers.authorization;
@@ -130,7 +130,7 @@ export class ApiKeyGuard implements CanActivate {
       return null;
     }
 
-    // Support "Bearer mux_..." or "ApiKey mux_..."
+    // Support "Bearer stellvex_..." or "ApiKey stellvex_..."
     const parts = authHeader.split(' ');
 
     if (parts.length !== 2) {

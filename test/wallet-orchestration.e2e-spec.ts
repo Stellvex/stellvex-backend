@@ -54,7 +54,7 @@ const makeOrchestrationResult = (overrides: Record<string, any> = {}) => ({
 // Helpers
 // ---------------------------------------------------------------------------
 
-const VALID_API_KEY = 'mux_test_e2etestkey12345678901234567890';
+const VALID_API_KEY = 'stellvex_test_e2etestkey12345678901234567890';
 
 const makeApiKeyService = (): Partial<ApiKeyService> => ({
   validateApiKey: jest.fn(async () => ({

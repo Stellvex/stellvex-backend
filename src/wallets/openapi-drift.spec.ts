@@ -8,7 +8,7 @@
 const MOCK_COMMITTED_SPEC = JSON.stringify(
   {
     openapi: '3.0.0',
-    info: { title: 'Mux Backend API', version: '1.0' },
+    info: { title: 'Stellvex Backend API', version: '1.0' },
     paths: {
       '/v1/wallets': { get: {} },
       '/v1/users': { get: {} },

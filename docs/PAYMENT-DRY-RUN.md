@@ -16,7 +16,7 @@ Example request:
 
 ```http
 POST /v1/payments/dry-run
-Authorization: Bearer mux_test_example
+Authorization: Bearer stellvex_test_example
 Content-Type: application/json
 
 {

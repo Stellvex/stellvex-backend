@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-The `/v1` API prefix has been successfully implemented for the Mux Backend application. All API endpoints are now served under the `/v1` path, enabling API versioning and following REST best practices.
+The `/v1` API prefix has been successfully implemented for the Stellvex Backend application. All API endpoints are now served under the `/v1` path, enabling API versioning and following REST best practices.
 
 ## What Was Implemented
 
@@ -152,7 +152,7 @@ IMPLEMENTATION_COMPLETE.md                    ✨ CREATED (this file)
 
 ### Run All E2E Tests
 ```bash
-cd /workspaces/mux-backend
+cd /workspaces/stellvex-backend
 pnpm install  # if needed
 pnpm test:e2e
 ```

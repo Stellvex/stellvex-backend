@@ -1,14 +1,14 @@
-# Mux Backend
+# Stellvex Backend
 
-Backend infrastructure for **Mux Protocol** — powering invisible wallets, payment orchestration, and smart contract interaction on **Stellar (Soroban)**.
+Backend infrastructure for **Stellvex Protocol** — powering invisible wallets, payment orchestration, and smart contract interaction on **Stellar (Soroban)**.
 
-Mux Backend abstracts blockchain complexity behind a secure, Web2-friendly API, enabling users to interact with crypto without managing keys, gas, or wallets directly.
+Stellvex Backend abstracts blockchain complexity behind a secure, Web2-friendly API, enabling users to interact with crypto without managing keys, gas, or wallets directly.
 
 ---
 
 ## Overview
 
-Mux Backend is the trusted coordination layer between:
+Stellvex Backend is the trusted coordination layer between:
 
 * Web2 authentication providers (Clerk / Better Auth)
 * Stellar accounts and Soroban smart contracts

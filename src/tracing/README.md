@@ -1,6 +1,6 @@
 # OpenTelemetry Tracing
 
-This module provides optional OpenTelemetry tracing support for the Mux Backend API.
+This module provides optional OpenTelemetry tracing support for the Stellvex Backend API.
 
 ## Overview
 
@@ -31,7 +31,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 
 # Service configuration
-OTEL_SERVICE_NAME=mux-backend
+OTEL_SERVICE_NAME=stellvex-backend
 OTEL_SERVICE_VERSION=1.0.0
 OTEL_SERVICE_NAMESPACE=production
 

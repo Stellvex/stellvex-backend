@@ -2,7 +2,7 @@
 
 ## Overview
 
-Implemented a comprehensive StrKey encoding helper utility for the Mux Protocol key management system. This helper provides secure, validated encoding and decoding of Stellar keys using the StrKey format.
+Implemented a comprehensive StrKey encoding helper utility for the Stellvex Protocol key management system. This helper provides secure, validated encoding and decoding of Stellar keys using the StrKey format.
 
 ## Scope
 
@@ -323,7 +323,7 @@ All acceptance criteria have been met:
 
 ## Summary
 
-Successfully implemented a production-ready StrKey encoding helper for the Mux Protocol with:
+Successfully implemented a production-ready StrKey encoding helper for the Stellvex Protocol with:
 
 - ✅ Complete functionality (encoding, decoding, validation)
 - ✅ Comprehensive test coverage (unit, integration, contract)

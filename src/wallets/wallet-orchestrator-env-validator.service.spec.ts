@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { WalletOrchestratorEnvValidatorService } from './wallet-orchestrator-env-validator.service';
 
 const ALL_VARS_PRESENT = {
-  DATABASE_URL: 'postgresql://user:pass@localhost:5432/mux_db',
+  DATABASE_URL: 'postgresql://user:pass@localhost:5432/stellvex_db',
   STELLAR_HORIZON_URL: 'https://horizon-testnet.stellar.org',
   WALLET_ENCRYPTION_KEY: 'a-secure-key-that-is-at-least-32-chars-long',
 };
